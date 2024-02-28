@@ -1,10 +1,27 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<!--
+/**
+ * Product Question
+ * Layout realization
+ *
+ * @category Internship
+ * @package Internship\ProductQuestion
+ * @author Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2024 Tomkiv
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="product.info.addtocart.additional">
+        <referenceBlock name="product.info.addtocart">
             <block name="product.info.product.question"
                    template="Internship_ProductQuestion::catalog/product/view/product_question.phtml"
-                   after="product.info.addtocart" />
+                   after="product.info.addtocart"/>
+        </referenceBlock>
+        <referenceBlock name="product.info.addtocart.additional">
+            <block name="product.info.additional.product.question"
+                   template="Internship_ProductQuestion::catalog/product/view/product_question.phtml"
+                   after="product.info.addtocart"/>
         </referenceBlock>
     </body>
 </page>

@@ -3,21 +3,24 @@
  * Product Question
  * Email template
  *
- * @category  Internship
- * @package   Internship\ProductQuestion
- * @author    Andrii Tomkiv <tomkivandrii18@gmail.com>
- * @copyright 2023 Tomkiv
+ * @category Internship
+ * @package Internship\ProductQuestion
+ * @author Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2024 Tomkiv
  */
 -->
 
 {{template config_path="design/email/header_template"}}
 
-<h2>You have a new question for your product</h2>
-<p>{{trans "Product question from: %name" name=$name.product}}</p>
+<!--@subject New Product Question @-->
+
+<p>{{trans "Question from: %name" name=$name}}</p>
 <br/>
-<p>{{trans "The main question is: %question" question=$question.product}}</p>
+<p>{{trans "For product: %product_sku" product_sku=$product_sku}}</p>
 <br/>
-<p>{{trans "Send reply to: %email" email=$email.product}}</p>
+<p>{{trans "Question content is: %question" question=$question}}</p>
+<br/>
+<p>{{trans "Send reply to: %email" email=$email}}</p>
 <br/>
 
 {{template config_path="design/email/footer_template"}}

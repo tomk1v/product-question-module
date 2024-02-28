@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Product Question
+ * XML adding new tab
+ *
+ * @category Internship
+ * @package Internship\ProductQuestion
+ * @author Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2024 Tomkiv
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="trans_email">
+            <group id="product_question" translate="label" type="text" sortOrder="6"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Question</label>
+                <field id="email" translate="label" type="text" sortOrder="2"
+                       showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sender Email</label>
+                    <validate>validate-email</validate>
+                    <backend_model>Magento\Config\Model\Config\Backend\Email\Address</backend_model>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sender Name</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Email\Sender</backend_model>
+                    <validate>validate-emailSender</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

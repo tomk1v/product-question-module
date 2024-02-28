@@ -1,3 +1,14 @@
+<!--
+/**
+ * Product Question
+ * Validation & sending data
+ *
+ * @category Internship
+ * @package Internship\ProductQuestion
+ * @author Andrii Tomkiv <tomkivandrii18@gmail.com>
+ * @copyright 2024 Tomkiv
+ */
+-->
 require(
     [
         'jquery',
@@ -20,47 +31,47 @@ require(
             }]
         };
 
-        let productQuestion = modal(options, $('#product-question-modal'));
+        modal(options, $('#product-question-modal'));
 
-        $("#question-button").on('click',function(){
+        $("#question-button").on('click', function () {
             $("#product-question-modal").modal("openModal");
         });
 
-        $("#submit-question").on('click',function(){
+        $("#submit-question").on('click', function () {
             if (validateFormQuestion()) {
-                $.ajax({
-                    url: '/product/email/question',
-                    showLoader: true,
-                    data: {
-                        name: $('#name').val(),
-                        email: $('#email').val(),
-                        question: $('#question').val()
-                    },
-                    dataType : 'json',
-                    type: 'POST'
-                });
-                location.reload();
+                sendQuestion();
             }
         });
 
+        function sendQuestion() {
+            $.ajax({
+                url: '/product/email/question',
+                showLoader: true,
+                data: {
+                    name: $('#name').val().trim(),
+                    email: $('#email').val().trim(),
+                    question: $('#question').val().trim(),
+                    product_sku: $('.product.attribute.sku .value').text()
+                },
+                dataType: 'json',
+                type: 'POST',
+                success: function () {
+                    $("#product-question-modal").modal("closeModal");
+                }
+            });
+        }
+
         function validateFormQuestion() {
-            const name = $('#name').val().trim();
-            const email = $('#email').val().trim();
-            const question = $('#question').val().trim();
+            const fields = ['#name', '#email', '#question'];
+            for (let field of fields) {
+                const value = $(field).val().trim();
+                const hintClass = `${field}-hint`;
 
-            if (name == null || name === "") {
-                $(".name-hint").show();
-                return false
+                if (value == null || value === "") {
+                    $(`.${hintClass}`).show();
+                    return false;
+                }
             }
-            if (email == null || email === "") {
-                $(".email-hint").show();
-                return false
-            }
-            if (question == null || question === "") {
-                $(".question-hint").show();
-                return false
-            }
-
             return true;
         }
     });
