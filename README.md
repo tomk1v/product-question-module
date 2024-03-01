@@ -33,6 +33,9 @@ Navigate to Product Question configuration in the Magento Admin Panel and fill i
 Visit the product view page and click the 'Ask Question' button.
 ![2024-03-01_12-14](https://github.com/tomk1v/product-question-module/assets/91790934/61966c51-fe2a-41fe-b29c-72b5af20b950)
 
+Fill out the form.
+![2024-03-01_12-21](https://github.com/tomk1v/product-question-module/assets/91790934/bf2b37c0-6075-44de-b090-2bd1235bd477)
+
 Check mail service.
 ![2024-03-01_13-30](https://github.com/tomk1v/product-question-module/assets/91790934/c035ce66-5bb4-4274-bb98-19ee6420e292)
 
